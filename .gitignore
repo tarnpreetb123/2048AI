@@ -1,0 +1,8 @@
+.idea
+*.pyc
+Animation/__pycache__/
+GameObjects/__pycache__/
+GameStates/__pycache__/
+Imports/__pycache__/
+Main/__pycache__/
+Map/__pycache__/
