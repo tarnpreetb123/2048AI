@@ -9,7 +9,7 @@ import copy as cp
 class Popuation:
     def __init__(self, numGames):
         self.pop = []
-        self.popSize = 40
+        self.popSize = 20
         self.currentGeneration = 0
         self.currentGame = 0
         self.currentIndividual = 0
@@ -57,7 +57,7 @@ class Popuation:
             # print("sorted")
             self.pop.sort(key=lambda x: x.getFitness(), reverse=True)
 
-            self.pop[0].setFitness(self.pop[0].getFitness() * 100)
+            self.pop[0].setFitness(self.pop[0].getFitness() * 1000)
             self.pop[1].setFitness(self.pop[1].getFitness() * 50)
             self.pop[2].setFitness(self.pop[2].getFitness() * 50)
 
@@ -89,6 +89,11 @@ class Popuation:
             newPop[2] = cp.deepcopy(self.pop[0])
             newPop[3] = cp.deepcopy(self.pop[0])
             newPop[4] = cp.deepcopy(self.pop[0])
+
+            newPop[1].setParams(CrossOver.mutate(newPop[1].getNetGenes()))
+            newPop[2].setParams(CrossOver.mutate(newPop[2].getNetGenes()))
+            newPop[3].setParams(CrossOver.mutate(newPop[3].getNetGenes()))
+            newPop[4].setParams(CrossOver.mutate(newPop[4].getNetGenes()))
             self.pop = newPop
             # print(newPop)
             # print(len(newPop))

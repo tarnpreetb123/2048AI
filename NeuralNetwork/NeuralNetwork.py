@@ -10,8 +10,8 @@ class NeuralNetwork:
 
         self.net = FeedForwardNetwork()
         self.inLayer = TanhLayer(16)
-        self.hiddenLayer = TanhLayer(10)
-        self.hiddenLayer2 = TanhLayer(10)
+        self.hiddenLayer = TanhLayer(20)
+        self.hiddenLayer2 = TanhLayer(20)
         self.outLayer = SoftmaxLayer(4)
 
         self.net.addInputModule(self.inLayer)
@@ -63,3 +63,6 @@ class NeuralNetwork:
 
     def getParams(self):
         return self.net.params
+
+    def setParams(self, genes):
+        self.net._setParameters(genes)

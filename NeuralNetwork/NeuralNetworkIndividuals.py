@@ -40,3 +40,6 @@ class NeuralNetworkIndividuals:
 
     def printData(self):
         print("Winner: ", self.score)
+
+    def setParams(self, genes):
+        self.neuralNetwork.setParams(genes)
